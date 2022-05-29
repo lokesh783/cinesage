@@ -12,16 +12,17 @@ body{
     background: #071827;
     position: relative;
     font-family: roboto,sans-serif;
-}
-
-body{
     overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 body::-webkit-scrollbar{
     display: none;
 }
 
+/* +++++++++++++++++++++++ */
+/* NAVBAR SECTION      +++ */
+/* +++++++++++++++++++++++ */
 .navbar{
     width: 100%;
     height: 80px;
@@ -107,7 +108,13 @@ body::-webkit-scrollbar{
     font-weight: 700;
     text-decoration: none;
 }
+/* ++++++++++++++++++++++++ */
+/* NAVBAR ENDS ++++++++++++ */
+/* ++++++++++++++++++++++++ */
 
+/* ++++++++++++++++++++++++ */
+/* CAROUSEL ++++++++++++ */
+/* ++++++++++++++++++++++++ */
 .carousel-container{
     position: relative;
     width: 100%;
@@ -161,14 +168,10 @@ body::-webkit-scrollbar{
     z-index: 2;
     background: linear-gradient(to right , #030b17 80%,#0c111b00);
     color: #fff;
-    /* display: flex; */
-    /* justify-content: center; */
 }
 
 .basic-content{
     margin-left: 49px;
-    /* font-size: 8px; */
-    /* display: inline; */
 }
 
 .basic-content h2{
@@ -209,6 +212,16 @@ body::-webkit-scrollbar{
     opacity: 0.8;
 }
 
+/* ++++++++++++++++++++++++ */
+/* CAROUSEL ENDS ++++++++++++ */
+/* ++++++++++++++++++++++++ */
+
+
+
+
+/* ++++++++++++++++++++++++ */
+/* CARDS  ++++++++++++ */
+/* ++++++++++++++++++++++++ */
 .title{
     color: #fff;
     opacity: 0.9;
@@ -227,6 +240,7 @@ body::-webkit-scrollbar{
     margin: 0 0 20px;
 }
 
+/* OVERALL CARD CONTAINER  */
 .card-container{
     position: absolute;
     width: 100%;
@@ -258,6 +272,7 @@ body::-webkit-scrollbar{
     transition: 0.5s;
 }
 
+/* Images in my cards  */
 .card-img{
     width: 100%;
     height: 100%;
@@ -313,6 +328,7 @@ body::-webkit-scrollbar{
     outline: none;
 }
 
+/* sliding container pre and next buttons  */
 .pre{
     left: 0;
     background: linear-gradient(to right , #0c111b 0% , #0c111b00);
@@ -334,6 +350,9 @@ body::-webkit-scrollbar{
     opacity: 1;
 }
 
+/* PRE AND NEXT ENDS */
+
+
 .land-form{
     display: inline;
     text-align: center;
@@ -344,11 +363,9 @@ body::-webkit-scrollbar{
     height: fit-content;
 }
 
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
+/* +++++++++++++++++++++++    */
+/* FOOTER AND REGISTRATION +++*/
+/* +++++++++++++++++++++++    */
 .search-text {
 	margin-top: 50px;
 	background-color: #071827;
@@ -375,6 +392,8 @@ body {
     color: #FFF;
     font-weight: 700;
 }
+
+
 
 footer {
     background-color: #172129;
@@ -428,7 +447,7 @@ footer {
     font-size: 18px;
 }
 
-
+/* MEDIA QUERY 1 */
 @media only screen and (max-width:960px){
     .search-box{
         width: 84px;
@@ -454,7 +473,9 @@ footer {
     }
 }
 
+/* MEDIA QUERY 2 */
 @media only screen and (max-width:565px){
+    /* REMOVED UNWANTED LINKS ON REDUCING THE SCREEN */
     .d-remove{
         display: none;
     }
@@ -491,7 +512,6 @@ footer {
 }
 
 
-
 .anna{
     padding-left: 10rem;
 }
@@ -503,20 +523,23 @@ footer {
 .input-group-addon{
     display: block;
 }
-#food_list{
+
+
+/* CSS FOR AUTO SUGGESTION */
+#suggest_list{
     background-color: rgb(60, 60, 60);
     color: white;
     list-style: none;
     width: 66%;
 }
 
-#food_list li{
+#suggest_list li{
     color: #c7c7c7;
     font-weight: 500;
     padding-bottom: 3px;
     font-size: 15px;
 }
 
-#food_list li:hover{
+#suggest_list li:hover{
     background-color: grey;
 }

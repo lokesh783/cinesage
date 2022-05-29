@@ -14,7 +14,7 @@ corrMatrix = pickle.load(open('corrMatrix.pkl', 'rb'))
 # --------------*---------------*----------------*--------------*-----------------*------------------ #
 
 # DATA FILE IMPORTS
-data = pd.read_csv( r'D:Datasets/clean_data.csv')
+data = pd.read_csv( r'Datasets/clean_data.csv')             # to check the searched movie is from tmdb data set or not
 links = pd.read_csv('Datasets/links.csv')                   # to get tmdb id from movie lens id and vice versa
 movieLens = pd.read_csv('Datasets/movies.csv')              # for getting the datas in between such as name to id and vice versa
 tmdb_movies = pd.read_csv('Datasets/tmdb_5000_credits.csv') # for getting the datas in between such as name to id and vice versa
@@ -43,7 +43,7 @@ indexes = data.index
 # indices is storing index of each tmdb movie
 indices = pd.Series(indexes, index=data['original_title'])
 
-# # CONTENT BASED MODELLING TASKS ENDS
+# CONTENT BASED MODELLING TASKS ENDS
 
 # --------------*---------------*----------------*--------------*-----------------*------------------ #
 

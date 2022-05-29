@@ -32,9 +32,9 @@ most_popular = pickle.load(open('most_popular.pkl','rb'))         # MOST POPULAR
 
 # DATA FILE IMPORTS   
 KNN_data = pandas_lib.read_csv(r"Datasets\clean_dataa.csv")
-movieLens = pd.read_csv('Datasets/movies.csv')
-links = pd.read_csv('Datasets/links.csv')
-tmdb_movies = pd.read_csv('Datasets/tmdb_5000_credits.csv')
+movieLens = pd.read_csv(r'Datasets/movies.csv')
+links = pd.read_csv(r'Datasets/links.csv')
+tmdb_movies = pd.read_csv(r'Datasets/tmdb_5000_credits.csv')
 data = pandas_lib.read_csv( r'Datasets/clean_data.csv')
 
 # --------------*---------------*----------------*--------------*-----------------*------------------ #
@@ -52,7 +52,7 @@ indices = pandas_lib.Series(indexes, index=data['original_title'])
 
 
 
-data = pandas_lib.read_csv(r'D:\Coding\Recommendation engine\Data Files/clean_data.csv')
+data = pandas_lib.read_csv(r'Datasets/clean_data.csv')
 data['overview'] = data['overview'].fillna('')
 indexes = data.index
 title = data['original_title']
@@ -207,9 +207,9 @@ def main_func(movie_name, rating):
     similar_ratings = similar_ratings.sort_values(ascending=False)
     return similar_ratings
 
-def item_item(dyn_rating):
+def item_item(yopo):
     similar_movies = pd.DataFrame()
-    for i in dyn_rating:
+    for i in yopo:
         for apir1, apir2 in i.items():
             n = int(apir2)
             similar_movies = similar_movies.append(
@@ -243,6 +243,7 @@ def KNN_based(searched_movie):
     searched_movie_tmdb_id = mov_and_id['id'].iloc[searched_movie_index]
 
     # LENS ID
+    # if tmdb id not present in links return empty arrays
     if searched_movie_tmdb_id in links['tmdbId'].values:
         searched_movie_lens_id = links.loc[links['tmdbId']
                                            == searched_movie_tmdb_id, 'movieId']
@@ -251,13 +252,15 @@ def KNN_based(searched_movie):
         return arr_KNN ,  names
 
     # LENS NAME
+    # if lens id not present in KNN_data return empty arrays
     if searched_movie_lens_id in KNN_data['movieId'].values:
         searched_movie_lens_name = KNN_data.loc[KNN_data['movieId']
                                                 == searched_movie_lens_id, 'title']
         searched_movie_lens_name = searched_movie_lens_name.iloc[0]
     else:
         return arr_KNN , names
-
+    
+    # if lens name not present in KNN_data return empty arrays
     if searched_movie_lens_name in KNN_data['title'].values:
         distances, ids = ML.kneighbors(
             p_t.loc[searched_movie_lens_name, :].values.reshape(1, -1), n_neighbors=9)

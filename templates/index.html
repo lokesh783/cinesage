@@ -7,11 +7,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='images/logs.png') }}">
-        <!-- Stylesheets -->
+
+        <!--   ******   JAVASCRIPT  ******   -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!--   ******   STYLESHEETS  ******   -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!--   ******   CONVERTING SUGGEST TO JSON  ******   -->
         <script type="text/javascript">
             var films = {{suggest|tojson}};
         </script>
@@ -27,19 +30,19 @@
         {% if no_rated_movie==1 %}
         <script>alert("Please rate atleast one movie")</script>
         {% endif %}
-
-    <nav class="navbar">
-        <div class="left-container">
-        <img src="{{ url_for('static',filename='images/logs.png') }}" class="  brand-logo" alt="">
-        <ul class="  nav-links">
-            <li class="nav-items d-remove"><a href="#">Home</a></li>
-            <li class="nav-items d-remove"><a href="#">Genres</a></li>
-            <li class="nav-items"><a href="{{ url_for('collab_rec') }}"> Recommend </a>
-        </ul>
-    </div>
-        <div class="right-container">
+        <!--   ******   CAROUSELS  ******   -->
+        <nav class="navbar">
+            <div class="left-container">
+                <img src="{{ url_for('static',filename='images/logs.png') }}" class="  brand-logo" alt="">
+                <ul class="  nav-links">
+                    <li class="nav-items d-remove"><a href="#">Home</a></li>
+                    <li class="nav-items d-remove"><a href="#">Genres</a></li>
+                    <li class="nav-items"><a href="{{ url_for('collab_rec') }}"> Recommend </a>
+                </ul>
+            </div>
+            <div class="right-container">
             <!--  Search Box   -->
-            <form class="land-form" method="POST" action="{{ url_for('rec') }}">
+                <form class="land-form" method="POST" action="{{ url_for('rec') }}">
                 <input id="autoComplete" autocomplete="off" type="text" class="search-box" name="movie_name" placeholder="search">
             </form>
             <div class="linkks">
@@ -51,7 +54,7 @@
 
 
         
-        
+        <!--   ******   CAROUSEL  ******   -->
         <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -111,7 +114,7 @@
             </div>
         </div>
         
-        
+        <!--   ******   POPULAR MOVIES CARD  ******   -->
         <h1 class="title">Most Popular</h1>
         <div class="movies-list">
             <button class="pre"> <img src="{{ url_for('static',filename='images/pre.PNG') }}" alt=""> </button>
@@ -130,7 +133,7 @@
             </div>
         </div>
         
-
+        <!--   ******   RATED MOVIES CARD  ******   -->
         <h1 class="title">Latest</h1>
         <div class="movies-list">
             <button class="pre"> <img src="{{ url_for('static',filename='images/pre.PNG') }}" alt=""> </button>
@@ -149,7 +152,7 @@
             </div>
         </div>
 
-         
+         <!--   ******   FOOTER  ******   -->
          <footer>
           <div class="container">
             <div class="row">

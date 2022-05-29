@@ -1,4 +1,5 @@
 
+// SCRIPT FOR SLIDERS
 let cardContainers = [...document.querySelectorAll('.card-container')]
 let first_buttons = [...document.querySelectorAll('.pre')]
 let next_buttons = [...document.querySelectorAll('.nxt')]
